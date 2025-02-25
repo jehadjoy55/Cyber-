@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield Bangladesh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Background - Hacker Matrix Effect */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+        
+        nav h1 {
+            color: #00FF00;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav ul li {
+            display: inline;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #00FF00;
+        }
+        
+        /* Main Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 50px;
+            font-weight: 700;
+            color: #00FF00;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            font-weight: 300;
+            max-width: 800px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* About Us Section */
+        .about {
+            padding: 80px 20px;
+            background: #111;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .about h2 {
+            font-size: 40px;
+            color: #00FF00;
+            margin-bottom: 20px;
+        }
+        
+        .about p {
+            font-size: 18px;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background: #222;
+            color: #fff;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 40px;
+            color: #00FF00;
+            margin-bottom: 20px;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contact form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .contact form input,
+        .contact form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #00FF00;
+            background: #111;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .contact form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact form button {
+            background: #00FF00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact form button:hover {
+            background: #00cc00;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 20px;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            /* Navbar */
+            nav {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            nav h1 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            /* Hero Section */
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            /* About Us Section */
+            .about h2 {
+                font-size: 32px;
+            }
+
+            .about p {
+                font-size: 16px;
+            }
+
+            /* Contact Section */
+            .contact h2 {
+                font-size: 32px;
+            }
+
+            .contact form label {
+                font-size: 16px;
+            }
+
+            .contact form input,
+            .contact form textarea {
+                font-size: 14px;
+            }
+
+            .contact form button {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Hero Section */
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            /* About Us Section */
+            .about h2 {
+                font-size: 28px;
+            }
+
+            .about p {
+                font-size: 14px;
+            }
+
+            /* Contact Section */
+            .contact h2 {
+                font-size: 28px;
+            }
+
+            .contact form label {
+                font-size: 14px;
+            }
+
+            .contact form input,
+            .contact form textarea {
+                font-size: 12px;
+            }
+
+            .contact form button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Effect -->
+    <canvas id="matrixCanvas"></canvas>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <h1>CyberShield BD</h1>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Welcome to CyberShield Bangladesh</h1>
+        <p>Your trusted partner in solving cyber problems. We protect your digital life from hacking, scams, and online threats. Stay safe, stay secure!</p>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>We are a dedicated team of cybersecurity experts in Bangladesh, committed to helping individuals and businesses stay protected online. Our mission is to create a safer digital space by offering professional guidance and support in tackling cyber threats.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form action="https://formspree.io/f/mqaevnlz" method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="problem">Your Problem:</label>
+            <input type="text" id="problem" name="problem" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 CyberShield Bangladesh. All rights reserved.
+    </footer>
+
+    <!-- JavaScript for Matrix Background -->
+    <script>
+        const canvas = document.getElementById("matrixCanvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+        const chars = matrixChars.split("");
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#00FF00";
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 33);
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
